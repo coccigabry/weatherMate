@@ -2,8 +2,6 @@ import React from 'react'
 
 
 const Forecasts = ({ title }) => {
-    const GEOAPIS_KEY = import.meta.env.VITE_GEOAPIS_KEY
-    const WEATHER_VC_KEY = import.meta.env.VITE_WEATHER_VC_KEY
 
     return (
         <div>
