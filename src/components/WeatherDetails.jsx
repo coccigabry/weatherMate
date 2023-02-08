@@ -22,7 +22,7 @@ const WeatherDetails = () => {
                     <div className="flex flex-row items-center justify-between text-white py-3">
                         <div className="flex items-center justify-center flex-1">
                             <img
-                                src={`./src/assets/icons/png/2nd Set - Color/${(current.currentConditions.icon)}.png`}
+                                src={`/icons/png/2nd Set - Color/${(current.currentConditions.icon)}.png`}
                                 alt=""
                                 className="w-20"
                             />

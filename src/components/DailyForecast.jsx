@@ -29,7 +29,7 @@ const DailyForecast = () => {
                                             {`${date[0]} ${date[2]}`}
                                         </p>
                                         <img
-                                            src={`./src/assets/icons/png/2nd Set - Color/${(icon)}.png`}
+                                            src={`/icons/png/2nd Set - Color/${(icon)}.png`}
                                             alt=""
                                             className="w-12 my-1"
                                         />

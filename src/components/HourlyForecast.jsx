@@ -45,7 +45,7 @@ const HourlyForecast = () => {
                                             </div>
                                             <div className="flex items-center justify-center w-3/12">
                                                 <img
-                                                    src={`./src/assets/icons/png/2nd Set - Color/${(icon)}.png`}
+                                                    src={`/icons/png/2nd Set - Color/${(icon)}.png`}
                                                     alt=""
                                                     className="w-12 my-1"
                                                 />
