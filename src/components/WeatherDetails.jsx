@@ -5,21 +5,23 @@ import { FiDroplet, FiSunrise, FiSunset } from 'react-icons/fi'
 
 
 const WeatherDetails = () => {
-    const { showComponents, dailyForecast } = useContext(AppContext)
+    const { showComponents, forecasts } = useContext(AppContext)
 
+    const { current } = forecasts
 
+    
     return (
         <div>
             {
                 showComponents &&
                 <>
                     <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-                        <p>Sunny</p>
+                        <p>{(current.currentConditions.conditions)}</p>
                     </div>
 
                     <div className="flex flex-row items-center justify-between text-white py-3">
                         <img
-                            src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
+                            src={`./src/assets/icons/png/2nd Set - Color/${(current.currentConditions.icon)}.png`}
                             alt=""
                             className="w-20"
                         />

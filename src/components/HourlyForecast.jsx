@@ -3,13 +3,12 @@ import { AppContext } from '../context/context'
 
 
 const HourlyForecast = () => {
-    const { showComponents, dailyForecast } = useContext(AppContext)
+    const { showComponents, forecasts } = useContext(AppContext)
 
 
     return (
         <div>
-            {
-                showComponents &&
+
                 <>
                     <div className="flex items-center justify-start mt-6">
                         <p className="text-white font-medium uppercase">
@@ -202,7 +201,7 @@ const HourlyForecast = () => {
                         </div>
                     </div>
                 </>
-            }
+
         </div>
     )
 }

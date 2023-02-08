@@ -3,7 +3,34 @@ import { AppContext } from '../context/context'
 
 
 const TimeLocation = () => {
-    const { showComponents, dailyForecast } = useContext(AppContext)
+    const { showComponents, forecasts } = useContext(AppContext)
+
+    const { current } = forecasts
+
+
+    const getLocalTime = (timezone) => {
+        const dateOptions = {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        }
+
+        const timeOptions = {
+            timeZone: timezone,
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit'
+        }
+
+        const options = {
+            ...timeOptions, ...dateOptions
+        };
+
+        const date = new Date().toLocaleString('en-UK', options)
+
+        return date
+    }
 
 
     return (
@@ -13,12 +40,17 @@ const TimeLocation = () => {
                 <>
                     <div className='flex items-center justify-center my-6'>
                         <p className='text-white text-xl font-extralight'>
-                            Tuesday, 7 May 2023 | Local time: 12:23 PM
+                            {getLocalTime(current.timezone)}
+                        </p>
+                    </div>
+                    <div className='flex items-center justify-center my-6'>
+                        <p className='text-white text-sm font-extralight'>
+                            Updated at: {current.currentConditions.datetime.substring(0, 5)} (UTC)
                         </p>
                     </div>
                     <div className='flex items-center justify-center my-3'>
                         <p className='text-white text-3xl font-medium'>
-                            Genoa, IT
+                            {current.resolvedAddress}
                         </p>
                     </div>
                 </>
