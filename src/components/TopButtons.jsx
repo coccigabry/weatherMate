@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../context/context'
 
 
 const TopButtons = () => {
+    const { fetchForecasts } = useContext(AppContext)
+
     const cities = [
         {
             id: 1,
@@ -9,31 +12,37 @@ const TopButtons = () => {
         },
         {
             id: 2,
-            name: 'Sidney'
+            name: 'Madrid'
         },
         {
             id: 3,
-            name: 'Tokyo'
+            name: 'Paris'
         },
         {
             id: 4,
-            name: 'Toronto'
+            name: 'Rome'
         },
         {
             id: 5,
-            name: 'Paris'
+            name: 'Berlin'
         },
     ]
 
-    const renderCities = cities.map(city => (
-        <button key={city.id} className='text-white text-lg font-medium'>
-            {city.name}
-        </button>
-    ))
 
     return (
         <div className='flex items-center justify-around my-6'>
-            {renderCities}
+            {
+                cities.map(city => (
+                    <button
+                        key={city.id}
+                        className='text-white text-lg font-medium'
+                        onClick={() => fetchForecasts(city.name)}
+                    >
+                        {city.name}
+                    </button>
+                ))
+
+            }
         </div>
     )
 }

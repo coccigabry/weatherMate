@@ -1,14 +1,17 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../context/context'
+import d2d from 'degrees-to-direction'
 
 
 const HourlyForecast = () => {
     const { showComponents, forecasts } = useContext(AppContext)
+    const { values } = forecasts.hourly
 
 
     return (
         <div>
-
+            {
+                showComponents &&
                 <>
                     <div className="flex items-center justify-start mt-6">
                         <p className="text-white font-medium uppercase">
@@ -17,191 +20,59 @@ const HourlyForecast = () => {
                     </div>
                     <hr className="my-2" />
                     <div className="text-white">
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                12:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                13:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                14:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                15:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                16:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                17:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                18:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                19:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                20:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                21:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                22:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                23:00 PM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <p className="font-medium">
-                                00:00 AM
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                            <p className="font-light text-sm">prec</p>
-                            <p className="font-light text-sm">wspd + wdir</p>
-                            <p className="font-light text-sm">humidity</p>
-                        </div>
+                        {
+                            values.map((value, idx) => {
+                                const {
+                                    datetimeStr,
+                                    icon,
+                                    conditions,
+                                    temp,
+                                    precip,
+                                    wspd,
+                                    wdir,
+                                    humidity
+                                } = value
+                                const today = new Date().getUTCDate()
+                                const valueDate = new Date(datetimeStr).getUTCDate()
+
+                                if (today === valueDate) {
+                                    return (
+                                        <div key={idx} className="flex items-center justify-between" >
+                                            <div className="flex items-center justify-center w-1/12">
+                                                <p className="font-medium">
+                                                    {new Date(datetimeStr).toLocaleTimeString('en-UK', { hour: '2-digit', minute: '2-digit' })}
+                                                </p>
+                                            </div>
+                                            <div className="flex items-center justify-center w-3/12">
+                                                <img
+                                                    src={`./src/assets/icons/png/2nd Set - Color/${(icon)}.png`}
+                                                    alt=""
+                                                    className="w-12 my-1"
+                                                />
+                                            </div>
+                                            <div className="flex items-center justify-center w-3/12">
+                                                <p className="font-light text-xs">{conditions}</p>
+                                            </div>
+                                            <div className="flex items-center justify-center w-1/12">
+                                                <p className="font-medium">{temp.toFixed()}°</p>
+                                            </div>
+                                            <div className="flex items-center justify-center w-1/12">
+                                                <p className="font-light text-xs">{precip == 0 ? '-' : `${precip}mm`}</p>
+                                            </div>
+                                            <div className="flex items-center justify-center w-2/12">
+                                                <p className="font-light text-xs">{wspd.toFixed()} {d2d(wdir)}</p>
+                                            </div>
+                                            <div className="flex items-center justify-center w-1/12">
+                                                <p className="font-light text-xs">{humidity.toFixed()}%</p>
+                                            </div>
+                                        </div >
+                                    )
+                                }
+                            })
+                        }
                     </div>
                 </>
-
+            }
         </div>
     )
 }

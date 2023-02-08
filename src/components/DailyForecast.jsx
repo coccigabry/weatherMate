@@ -3,15 +3,14 @@ import { AppContext } from '../context/context'
 
 
 const DailyForecast = () => {
-    const { showComponents, location, forecasts } = useContext(AppContext)
-
-
-    console.log(forecasts)
+    const { showComponents, forecasts } = useContext(AppContext)
+    const { values } = forecasts.daily
 
 
     return (
         <div>
-
+            {
+                showComponents &&
                 <>
                     <div className="flex items-center justify-start mt-6">
                         <p className="text-white font-medium uppercase">
@@ -20,86 +19,31 @@ const DailyForecast = () => {
                     </div>
                     <hr className="my-2" />
                     <div className="flex flex-row items-center justify-between text-white">
-                        <div className="flex flex-col items-center justify-center">
-                            <p className="font-light text-sm">
-                                wed 8
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <p className="font-light text-sm">
-                                thu 9
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <p className="font-light text-sm">
-                                fri 10
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <p className="font-light text-sm">
-                                sat 11
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <p className="font-light text-sm">
-                                sun 12
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <p className="font-light text-sm">
-                                mon 13
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <p className="font-light text-sm">
-                                tue 14
-                            </p>
-                            <img
-                                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.WOeO9yS1ydIuLBy7qS4KkwHaHa%26pid%3DApi&f=1&ipt=578a57462eea12d013862d09edd76ebf0a3de9f8023ccefa71a4efd7b8ffc9e3&ipo=images'
-                                alt=""
-                                className="w-12 my-1"
-                            />
-                            <p className="font-medium">28°</p>
-                        </div>
+                        {
+                            values.slice(1).map((value, idx) => {
+                                const { datetime, icon, temp, maxt } = value
+                                const date = new Date(datetime).toDateString().split(' ')
+                                return (
+                                    <div key={idx} className="flex flex-col items-center justify-center">
+                                        <p className="font-light text-sm">
+                                            {`${date[0]} ${date[2]}`}
+                                        </p>
+                                        <img
+                                            src={`./src/assets/icons/png/2nd Set - Color/${(icon)}.png`}
+                                            alt=""
+                                            className="w-12 my-1"
+                                        />
+                                        <div className="flex flex-row items-center justify-between gap-2">
+                                            <p className="font-sm">{temp.toFixed()}°</p>
+                                            <p className="font-sm">{maxt.toFixed()}°</p>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </>
-
+            }
         </div>
     )
 }

@@ -4,9 +4,7 @@ import { AppContext } from '../context/context'
 
 const TimeLocation = () => {
     const { showComponents, forecasts } = useContext(AppContext)
-
     const { current } = forecasts
-
 
     const getLocalTime = (timezone) => {
         const dateOptions = {
@@ -43,14 +41,14 @@ const TimeLocation = () => {
                             {getLocalTime(current.timezone)}
                         </p>
                     </div>
-                    <div className='flex items-center justify-center my-6'>
-                        <p className='text-white text-sm font-extralight'>
-                            Updated at: {current.currentConditions.datetime.substring(0, 5)} (UTC)
-                        </p>
-                    </div>
                     <div className='flex items-center justify-center my-3'>
                         <p className='text-white text-3xl font-medium'>
                             {current.resolvedAddress}
+                        </p>
+                    </div>
+                    <div className='flex items-center justify-center'>
+                        <p className='text-white text-sm font-extralight'>
+                            Updated at: {current.currentConditions.datetime.substring(0, 5)}
                         </p>
                     </div>
                 </>
